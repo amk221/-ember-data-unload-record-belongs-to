@@ -1,7 +1,16 @@
-{{page-title "Example"}}
+Foo:
+{{this.foo.id}}
+-
+{{this.foo.name}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<ul>
+  {{#each this.filteredFoos as |foo|}}
+    <li>{{foo.id}} - {{foo.name}}</li>
+  {{/each}}
+</ul>
 
-{{outlet}}
+<br />
+
+<button type='button' {{on 'click' this.destroyFoo}}>
+  Destroy foo
+</button>
